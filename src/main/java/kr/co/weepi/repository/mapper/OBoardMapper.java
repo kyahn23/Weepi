@@ -1,5 +1,9 @@
 package kr.co.weepi.repository.mapper;
 
-public interface OBoardMapper {
+import java.util.List;
 
+import kr.co.weepi.repository.domain.OBoard;
+
+public interface OBoardMapper {
+	List<OBoard> selectBoard();
 }

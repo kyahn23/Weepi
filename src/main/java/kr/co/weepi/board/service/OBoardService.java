@@ -1,7 +1,16 @@
 package kr.co.weepi.board.service;
 
-public interface OBoardService {
+import java.util.List;
 
+import kr.co.weepi.repository.domain.OBoard;
+
+public interface OBoardService {
+	
+	/**
+	 * List board
+	 * @return
+	 */
+	List<OBoard> selectBoard();
 	
 
 }

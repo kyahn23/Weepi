@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.co.weepi.repository.mapper.OBoardMapper">
+	<resultMap type="OBoard" id="oBodedMap">
+		<result column="reg_date" property="regDate"/>
+		<result column="view_cnt" property="viewCnt"/>
+	</resultMap>
+	<select id="selectBoard" resultMap="oBodedMap">
+		select * 
+		from o_board
+	</select>
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
