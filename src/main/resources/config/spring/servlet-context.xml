@@ -16,7 +16,7 @@
                           
     	
     	
-    	<context:component-scan base-package="kr.co.cocain"/>
+    	<context:component-scan base-package="kr.co.weepi"/>
 
      	
      	<aop:aspectj-autoproxy/>
@@ -47,7 +47,7 @@
 				<mvc:mapping path="/board/*/*update.do" /> 
 				<mvc:mapping path="/board/*/*form.do" /> 
 				<mvc:mapping path="/board/*/*write.do" /> 
-				<bean class="kr.co.cocain.user.controller.AuthInterceptor" />
+				<bean class="kr.co.weepi.user.controller.AuthInterceptor" />
 			</mvc:interceptor>
 		</mvc:interceptors>
 	
