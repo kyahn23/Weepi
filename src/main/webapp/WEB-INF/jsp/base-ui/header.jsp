@@ -25,22 +25,35 @@
 				<span class="sr-only"></span> <span class="icon-bar"></span> 
 				<span class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="<c:url value="/index.jsp"/>">CoCaIn</a>
+			<a class="navbar-brand" href="<c:url value="/index.jsp"/>">WEEPI</a>
 		</div>
 	</div>
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="<c:url value="/board/notice/list.do"/>">공지사항</a></li>
-			<li><a href="<c:url value="/board/studygroup/list.do"/>">스터디</a></li>
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-haspopup="true"
-				aria-expanded="false">퀴즈<span class="caret"></span></a>
+				aria-expanded="false">A!!<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">데일리 퀴즈</a></li>
-					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">유저 퀴즈</a></li>
-					<li><a href="<c:url value="/board/rank/rank.do"/>">랭킹 보기</a></li>
+					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">a1</a></li>
+					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">a2</a></li>
+					<li><a href="<c:url value="/board/rank/rank.do"/>">a3</a></li>
 				</ul></li>
-			<li><a href="<c:url value="/board/qna/list.do"/>">지식iN</a></li>
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" role="button" aria-haspopup="true"
+				aria-expanded="false">O!!<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">o1</a></li>
+					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">o2</a></li>
+					<li><a href="<c:url value="/board/rank/rank.do"/>">o3</a></li>
+				</ul></li>
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown" role="button" aria-haspopup="true"
+				aria-expanded="false">L!!<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">l1</a></li>
+					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">l2</a></li>
+					<li><a href="<c:url value="/board/rank/rank.do"/>">l3</a></li>
+				</ul></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<c:if test="${user == null}">
@@ -52,12 +65,6 @@
 	            <li><a href="<c:url value="/login/logout.do"/>">로그아웃</a></li>
             </c:if>
 		</ul>
-		<form class="navbar-form navbar-right" action="<c:url value="/main/mainSearch.do"/>">
-			<div class="form-group">
-				<input id="searchContent" name="searchContent" type="text" class="form-control" placeholder="내용을 입력하세요.">
-			</div>
-			<button id="searchBtn" type="submit" class="btn btn-default">검색</button>
-		</form>
 	</div>
 	</nav><!--header end --> </header>
 	<!-- login menu -->
@@ -72,7 +79,7 @@
 					<div class="modal-body" style="text-align: center;">
 						<div class="form-login">
 							<form id="loginForm" action="<c:url value="/login/login.do"/>" method="post">
-								<h1>CoCaIn</h1>
+								<h1>로그인~</h1>
 								<br> <input type="text" name="id"
 									class="form-control input-sm chat-input" placeholder="아이디" /> <br>
 								<input type="password" name="password"
@@ -126,14 +133,6 @@
 			})
 		});
 		
- 		$("#searchBtn").on("click", function(e) {
- 			var searchContent = $("#searchContent").val();
- 			if(searchContent == "") {
-	 			alert("내용을 입력하세요.");
-	 			return false;
- 			}
-		});
- 		
 	</script> 
 </body>
 </html>
