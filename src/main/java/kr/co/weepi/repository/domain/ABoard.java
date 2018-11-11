@@ -10,5 +10,6 @@ public class ABoard {
 	private String content;
 	private String title;
 	private int no;
+	private int viewCnt;
 	private Date regDate;
 }

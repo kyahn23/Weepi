@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <title>footer</title>
-    <link rel="stylesheet" href="/cocain/resources/css/base-ui/footer.css">
+    <link rel="stylesheet" href="/weepi/resources/css/base-ui/footer.css">
 </head>
 <body>
 	<footer>
