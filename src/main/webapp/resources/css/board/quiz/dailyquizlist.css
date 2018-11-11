@@ -4,7 +4,7 @@
 }
 /* content size */ 
 section{
-	height:1200px; 
+	height:850px; 
 	overflow:auto;
 }
 section::-webkit-scrollbar { 
@@ -29,19 +29,6 @@ section::-webkit-scrollbar {
 /*     border:1px solid blue; */
 
 }
-.background{
-    height:250px;
-    /* border:1px solid red; */
-}
-.title{
-    margin-top:30px;
-    height:80px;
-    background-color:#252c3f;
-    color:white;
-}
-.context{
-    margin-top:30px;
-}
 td > a, ul > li > a{
     color:#000515; 
 }
@@ -54,13 +41,6 @@ h2{
     margin:0 15%; 
 }
 
-div > .search{
-    text-align:center;
-}
-div > .search > *{
-    height:30px;
-    
-}
 div > .btn-primary, * > .buttons > button, form > button {
     border:#6d909c;
     background-color:#252c3f;
