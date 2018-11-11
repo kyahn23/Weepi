@@ -20,5 +20,17 @@ public interface LBoardService {
 	 * @return List<LBoard>
 	 */
 	List<LBoard> list();
-
+	
+	/**
+	 * 게시판 상세 조회에 대한 비즈니스 로직 처리
+	 * @param no
+	 * @return LBoard
+	 */
+	LBoard detail(int no);
+	
+	/**
+	 * 게시판 입력에 대한 비즈니스 로직 처리
+	 * @param board
+	 */
+	void write(LBoard board);
 }

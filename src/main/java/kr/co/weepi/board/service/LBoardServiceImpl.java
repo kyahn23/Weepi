@@ -18,7 +18,15 @@ public class LBoardServiceImpl implements LBoardService {
 	public List<LBoard> list() {
 		return mapper.selectBoard();
 	}
-	
-	
+
+	@Override
+	public LBoard detail(int no) {
+		return mapper.selectBoardByNo(no);
+	}
+
+	@Override
+	public void write(LBoard board) {
+		mapper.insertBoard(board);
+	}
 	
 }

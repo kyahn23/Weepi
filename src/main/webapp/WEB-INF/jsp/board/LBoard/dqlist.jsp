@@ -7,10 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>daily-quiz list</title>
-<%-- <link rel="stylesheet"
-	href="<c:url value="/resources/css/bootstrap/bootstrap.css"/>" /> --%>
-<link rel="stylesheet"
-	href="<c:url value="/resources/css/board/quiz/dailyquizlist.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap/bootstrap.css"/>" />
+<link rel="stylesheet" href="<c:url value="/resources/css/board/quiz/dailyquizlist.css"/>" />
 <%-- <script src="<c:url value="/resources/js/jquery-3.2.1.min.js"/>"></script> --%>
 <%-- <script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script> --%>
 </head>
@@ -35,177 +33,169 @@
 							<i class="fas fa-folder"></i> 유저퀴즈
 					</a></li>
 					<li role="presentation"><a
-						href="<c:url value="/board/rank/rank.do"/>"> <i class="fas fa-signal"></i>
-							랭킹보기
+						href="<c:url value="/board/rank/rank.do"/>"> <i
+							class="fas fa-signal"></i> 랭킹보기
 					</a></li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="section">
-			<div class="background">
-				<img src="<c:url value="/resources/images/quiz-back.jpg"/>"
-					width=100% height=250px; />
-			</div>
-
-			<div class="title">
-				<h2>DailyQuiz > 문제</h2>
-				
-			</div>
-
-			<div class="context"></div>
-
-			<table id="dqtable" class="table table-bordered">
-				<tr>
-					<th width="5%">번호</th>
-					<th width="7%">카테고리</th>
-					<th width="23%">제목</th>
-					<th width="15%">작성자</th>
-					<th width="15%">등록시간</th>
-					<th width="15%">마감시간</th>
-					<th width="7%">정답자 수</th>
-					<th width="8%">정답률</th>
-					<th width="5%">난이도</th>
-				</tr>
-				<c:forEach var="i" items="${data.list}">
-					<tr>
-						<td>${i.quizNo}</td>
-						<c:forEach var="j" items="${data.category}">
-							<c:if test="${i.categoryNo eq j.categoryNo}">
-								<td>${j.categoryName}</td>
-							</c:if>
-						</c:forEach>
-						<td><a
-							href="<c:url value="/board/quiz/dqdetail.do?quizNo=${i.quizNo}"/>"><c:out value="${i.title}"></c:out></a></td>
-						<td>
-							<a
-							<c:choose>
-                              		<c:when test="${user == null}">
-                                 		href="#" data-target="#login" id="log" data-toggle="modal"
-                               	</c:when>
-                              	<c:otherwise> 
-                              		href="<c:url value="/user/profile.do?writer=${i.nickname}" />"
-								</c:otherwise>
-                             	</c:choose> >
-							<c:out value="${i.nickname}"/>
-							</a>
-						</td>
-						<td><fmt:formatDate value="${i.regDate}"
-								pattern="yyyy-MM-dd HH:mm:ss" /></td>
-								
-						<!-- 현시간보다 늦으면 마감되었습니다. ㄱㄱ -->		
-							<c:set var="now" value="<%=new java.util.Date()%>" />
-							<c:set var="sysdate"><fmt:formatDate value="${now}" pattern="yyyy-MM-dd HH:mm:ss" /></c:set>
-							<c:set var="endDate"><fmt:formatDate value="${i.endDate}" pattern="yyyy-MM-dd HH:mm:ss"/></c:set>
-						<c:choose>
-							<c:when test="${endDate le sysdate}">
-								<td><span style="color:red">마감되었습니다.</span></td>
-							</c:when>
-							<c:otherwise>
-								<td style="color: green">${endDate}</td>							
-							</c:otherwise>
-						</c:choose>
-						<td>${i.answerCnt}</td>
-						<td>${i.probability}%</td>
-						<c:forEach var="k" items="${data.level}">
-							<c:if test="${i.levelNo eq k.levelNo}">
-								<td>${k.levelName}</td>
-							</c:if>
-						</c:forEach>
-					</tr>
-				</c:forEach>
-			</table>
 			<div class="row">
-				<div class="col-md-4">
-					<div class="write">
-						<c:if test="${sessionScope.user.id=='admin'}">
-							<button onclick='location.href="<c:url value='dqform.do'/>"'
-								class="btn btn-primary">글쓰기</button>
-						</c:if>
+				<div class="col-md-12">
+					<div class="table-responsive">
+						<h3>게시판</h3>
+						<%-- 					<p>전체 ${listCount}건 ${pageResult.pageNo} 페이지</p> --%>
+						<p>전체 123건1 페이지</p>
+						<table class="table" id="listtable">
+							<thead>
+								<tr>
+									<th class="ln">번호</th>
+									<th class="la">분류</th>
+									<th class="title">제목</th>
+									<th class="lw">작성자</th>
+									<th class="ld">날짜</th>
+									<th class="lr">추천수</th>
+									<th class="lv">조회수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td>잡담</td>
+									<td>안녕하세요</td>
+									<td>홍길동</td>
+									<td>2018-11-10</td>
+									<td>0</td>
+									<td>1</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
-
-				<div class="col-md-4">
-						<c:if test="${pageResult.count!=0}">
-							<!-- 전체 게시글이 0개가 아닐때 -->
-							<ul class="pagination pagination-sm">
-								<li
-									<c:if test="${pageResult.prev eq false}">class="disabled"</c:if>>
-									<a
-										<c:choose>
-											<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "/search.do"}'>
-												href="<c:url value="search.do?pageNo=${pageResult.beginPage-1}&typeNo=${search.typeNo}&categoryNo=${search.categoryNo}&search=${search.search}&word=${search.word}"/>"
-											</c:when>
-											<c:otherwise>  
-												href="<c:url value="dqlist.do?pageNo=${pageResult.beginPage-1}"/>"									
-											</c:otherwise>
-										</c:choose>
-									aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-								</a>
-								</li>
-
-								<c:forEach var="i" begin="${pageResult.beginPage}"
-									end="${pageResult.endPage}">
-									<!-- 현재페이지 체크 불가 -->
-									<li
-										<c:if test="${i eq pageResult.pageNo}">
-								class="active"</c:if>>
-										<a 
-											<c:choose>
-											<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "/search.do"}'>
-												href="<c:url value="search.do?pageNo=${i}&typeNo=${search.typeNo}&categoryNo=${search.categoryNo}&search=${search.search}&word=${search.word}"/>"
-											</c:when>
-											<c:otherwise>
-												href="<c:url value="dqlist.do?pageNo=${i}"/>"									
-											</c:otherwise>
-										</c:choose>
-											>${i}</a>	
-									</li>
-								</c:forEach>
-
-								<li
-									<c:if test="${pageResult.next eq false}">class="disabled"</c:if>>
-									
-									<a
-										<c:choose>
-											<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "/search.do"}'>
-												href="<c:url value="search.do?pageNo=${pageResult.endPage+1}&typeNo=${search.typeNo}&categoryNo=${search.categoryNo}&search=${search.search}&word=${search.word}"/>"
-											</c:when>
-											<c:otherwise>
-												href="<c:url value="dqlist.do?pageNo=${pageResult.endPage+1}"/>"									
-											</c:otherwise>
-										</c:choose>
-									aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-									</a>
-								</li>
-							</ul>
-						</c:if>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<a class="btn btn-default pull-right" href="writeForm.do">글쓰기</a>
 				</div>
-
-
-				<div class="col-md-4">
-					<div class="search">
-						<form id="sForm" action=<c:url value="search.do"/> method="post">
-							
-							<input type="hidden" name="typeNo" value="${data.list[0].typeNo}" />
-							<select name="categoryNo">
-								<option value="">카테고리전체</option>
-								<c:forEach var="i" items="${data.category}">
-								<option value="${i.categoryNo}">${i.categoryName}</option>
-								</c:forEach>
-							</select> 
-							<select name="search">
-								<option value="1">제목</option>
-								<option value="2">작성자</option>
-							</select> 
-							<input type="text" style="display:none;"/>	
-							<input class="ser" type="text" size="15"
-								placeholder="검색어를 입력하세요" name="word" />
-							<button id="search" class="ser" style="background-color:white">
-								&nbsp;&nbsp;<i class="fas fa-search"></i>&nbsp;&nbsp;
-							</button>
-						</form>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="text-center">
+						<ul class="pagination">
+						
+						<li>&laquo;</li>
+						
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						
+						<li>&raquo;</li>
+					</ul>
 					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<form class="form-inline" role="form" action="searchlist.do"
+						method="post" onsubmit="return doCheck()">
+						<div class="form-group">
+							<select class="form-control" name="select">
+								<option value="title">제목</option>
+								<option value="content">내용</option>
+								<option value="titlecontent">제목+내용</option>
+								<option value="writer">작성자</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="keyword"
+								placeholder="검색어를 입력하세요">
+						</div>
+						<button type="submit" class="btn">검색</button>
+					</form>
 				</div>
 			</div>
 			<!-- row end -->
@@ -217,21 +207,20 @@
 	<!-- footer.. -->
 	<c:import url="/WEB-INF/jsp/base-ui/footer.jsp"></c:import>
 
-	<script src="<c:url value="/resources/js/jquery-dateformat.js"/>"></script>
 	<script>
 	
-		/* paging 설정하기 !! */
-		$(".pagination > li:eq(0) > a").click(function(e){
-			if(!${pageResult.prev}){
-				e.preventDefault();
-			};
-		});
+// 		/* paging 설정하기 !! */
+// 		$(".pagination > li:eq(0) > a").click(function(e){
+// 			if(!${pageResult.prev}){
+// 				e.preventDefault();
+// 			};
+// 		});
 	
-		$(".pagination > li:last > a").click(function(e){
-			if(!${pageResult.next}){
-				e.preventDefault();
-			};
-		})
+// 		$(".pagination > li:last > a").click(function(e){
+// 			if(!${pageResult.next}){
+// 				e.preventDefault();
+// 			};
+// 		})
 		
 		/* 검색  */
 		

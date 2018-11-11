@@ -1,36 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>게시판 목록</title>
+<title>${board.no}번 게시글</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<style>
+	th {
+		width: 120px;
+	}
+</style>
 </head>
 <body>
-	<h2>자유게시판</h2>
-	<table class="table table-hover">
+	<h2>${board.no}번 게시글</h2>
+	<hr>
+	<table class="table">
 		<tr>
-			<th>번호</th>
+			<th>카테고리</th>
+			<td colspan="1">${board.category}</td>
 			<th>제목</th>
+			<td colspan="3">${board.title}</td>
 			<th>작성자</th>
+			<td>${board.writer}</td>
 			<th>작성일</th>
+			<td><fmt:formatDate value="${board.regDate}" pattern="yyyy-MM-dd" /></td>
 			<th>조회수</th>
+			<td>${board.viewCnt}</td>
 		</tr>
-		<c:forEach var="b" items="${list}">
-			<tr>
-				<td>${b.no}</td>
-				<td><a href="<c:url value='/board/LBoard/detail.do?no='/>${b.no}" >${b.title}</a></td>
-				<td>${b.writer}</td>
-				<td><fmt:formatDate value="${b.regDate}" pattern="yyyy-MM-dd" /></td>
-				<td>${b.viewCnt}</td>
-			</tr>
-		</c:forEach>
 		<tr>
-			<td colspan="4"></td>
-			<td><a href="<c:url value='/board/LBoard/writeForm.do'/>">글쓰기</a></td>
+			<th rowspan="5">내용</th>
+			<td rowspan="5" colspan="11">${board.content}</td>
 		</tr>
 	</table>
 </body>

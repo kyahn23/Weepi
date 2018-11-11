@@ -18,7 +18,19 @@
 		 order by no desc
 	</select> 
 	
-
+	<select id="selectBoardByNo" resultMap="boardMap" parameterType="int">
+		select *
+		  from l_board
+		 where no = #{no}
+	</select>
+	
+	<insert id="insertBoard" parameterType="LBoard" useGeneratedKeys="true" keyProperty="no">
+		insert into l_board(
+			title, writer, content, category
+		) values (
+			#{title}, #{writer}, #{content}, #{category}
+		)
+	</insert>
 </mapper>
 
 
