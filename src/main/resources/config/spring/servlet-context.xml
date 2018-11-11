@@ -59,7 +59,9 @@
 <!--     	controller 없이 이동하기 (form 호출 뭐 이런거 ) -->
 <!--     	<mvc:view-controller path="/09interceptor/loginForm.do" -->
 <!--     					     view-name="09interceptor/loginForm"/> -->
-		<mvc:view-controller path="/weepi/writeForm.do" view-name="weepi/writeForm" />
+		<mvc:view-controller path="/board/LBoard/writeForm.do" view-name="board/LBoard/writeForm" />
+		<mvc:view-controller path="/board/ABoard/writeForm.do" view-name="board/ABoard/writeForm" />
+		<mvc:view-controller path="/board/OBoard/writeForm.do" view-name="board/OBoard/writeForm" />
     	
     	<!-- 
     		web 자원중에서 스프링을 거치지 않아도 되는 것들: iage,css,javascript
