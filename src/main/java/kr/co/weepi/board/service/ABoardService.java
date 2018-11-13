@@ -8,6 +8,8 @@ public interface ABoardService {
 
 	List<ABoard> list();
 
+	void write(ABoard board);
+
 	
 
 }

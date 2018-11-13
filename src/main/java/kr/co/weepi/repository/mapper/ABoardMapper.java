@@ -8,4 +8,6 @@ public interface ABoardMapper {
 
 	List<ABoard> alist();
 
+	void awrite(ABoard board);
+
 }

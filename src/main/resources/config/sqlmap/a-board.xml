@@ -8,14 +8,21 @@
 		<result column="title" property="title" />
 		<result column="content" property="content" />
 		<result column="reg_date" property="regDate" />
+		<result column="view_cnt" property="viewCnt" />
 	</resultMap>
 
 	<!-- 전체 목록 가져오기 -->
 	<select id="alist" resultMap="AboardMap">
 		select *
-		from tb_board
+		from a_board
 		order by no desc
 	</select>
+	
+	<insert id="awrite" useGeneratedKeys="true" keyProperty="no"
+		parameterType="ABoard">
+		insert into a_board (title,writer,content)
+		values (#{title}, #{writer}, #{content})
+	</insert>
 
 
 </mapper>

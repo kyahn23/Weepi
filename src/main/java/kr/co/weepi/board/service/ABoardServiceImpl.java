@@ -19,6 +19,12 @@ public class ABoardServiceImpl implements ABoardService {
 		return mapper.alist();
 	}
 
+	@Override
+	public void write(ABoard board) {
+		mapper.awrite(board);
+		
+	}
+
 	
 
 }
