@@ -31,6 +31,13 @@
 			#{title}, #{writer}, #{content}, #{category}
 		)
 	</insert>
+	
+	<update id="updateBoard" parameterType="LBoard">
+		update l_board
+		   set title = #{title},
+		   	   content = #{content}
+		 where no = #{no}
+	</update>
 </mapper>
 
 

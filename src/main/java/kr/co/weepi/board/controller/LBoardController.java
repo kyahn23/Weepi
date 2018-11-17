@@ -13,6 +13,11 @@ import kr.co.weepi.repository.domain.LBoard;
 @RequestMapping("/board/LBoard")
 public class LBoardController {
 	
+	public LBoardController() {
+		super();
+		System.out.println("controller");
+	}
+	
 	@Autowired
 	private LBoardService service;
 	
@@ -29,6 +34,17 @@ public class LBoardController {
 	@RequestMapping("/write.do")
 	public String write(LBoard board) {
 		service.write(board);
+		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "detail.do?no=" + board.getNo();
+	}
+	
+	@RequestMapping("/updateForm.do")
+	public void updateForm(int no, Model model) {
+		model.addAttribute("board", service.detail(no));
+	}
+	
+	@RequestMapping("/update.do")
+	public String update(LBoard board) {
+		service.edit(board);
 		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "detail.do?no=" + board.getNo();
 	}
 }

@@ -33,4 +33,10 @@ public interface LBoardService {
 	 * @param board
 	 */
 	void write(LBoard board);
+	
+	/**
+	 * 글 수정에 대한 비즈니스 로직 처리
+	 * @param board
+	 */
+	void edit(LBoard board);
 }

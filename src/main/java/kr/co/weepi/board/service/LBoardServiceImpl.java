@@ -28,5 +28,12 @@ public class LBoardServiceImpl implements LBoardService {
 	public void write(LBoard board) {
 		mapper.insertBoard(board);
 	}
+
+	@Override
+	public void edit(LBoard board) {
+		System.out.println("go to edit");
+		mapper.updateBoard(board);
+		System.out.println("edited");
+	}
 	
 }

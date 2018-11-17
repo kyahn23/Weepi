@@ -17,7 +17,8 @@
 <body>
 	<h2>게시물 작성</h2>
 	<hr>
-	<form action="write.do" method="post">
+	<form action="update.do" method="post">
+		<input type="hidden" name="no" value="${board.no}" />
 		<table class="table">
 			<tr class="form-inline">
 				<th><label for="category">카테고리</label></th>
@@ -27,14 +28,14 @@
 					</select>
 				</td>
 				<th><label for="title">제목</label></th>
-				<td><input type="text" name="title" id="title"/></td>
+				<td><input type="text" name="title" id="title" value="${board.title}" /></td>
 				<th><label for="writer">작성자</label></th>
-				<td><input type="text" name="writer" id="writer" /></td>
+				<td>${board.writer}</td>
 			</tr>
 			<tr>
 				<th rowspan="5">내용</th>
 				<td rowspan="5" colspan="5">
-					<textarea name="content" id="editor"></textarea>
+					<textarea name="content" id="editor">${board.content}</textarea>
 				</td>
 			</tr>
 			<tr>
@@ -51,9 +52,6 @@
             console.error( error );
         } );
     
-//     CKEDITOR.replace('content', {
-//     	  height: 500
-//     	});
 	</script>
 </body>
 </html>

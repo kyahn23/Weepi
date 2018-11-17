@@ -34,5 +34,6 @@
 			<td rowspan="5" colspan="11">${board.content}</td>
 		</tr>
 	</table>
+	<a href="updateForm.do?no=${board.no}" class="col-md-offset-11">수정</a>
 </body>
 </html>
