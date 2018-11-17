@@ -35,5 +35,6 @@
 		</tr>
 	</table>
 	<a href="updateForm.do?no=${board.no}" class="col-md-offset-11">수정</a>
+	<a href="delete.do?no=${board.no}" class="col-md-offset-11">삭제</a>
 </body>
 </html>

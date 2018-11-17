@@ -38,6 +38,11 @@
 		   	   content = #{content}
 		 where no = #{no}
 	</update>
+	
+	<delete id="deleteBoardByNo" parameterType="int">
+		delete from l_board
+		 where no = #{no}
+	</delete>
 </mapper>
 
 

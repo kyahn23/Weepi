@@ -39,4 +39,10 @@ public interface LBoardService {
 	 * @param board
 	 */
 	void edit(LBoard board);
+	
+	/**
+	 * 게시판 글 1개 삭제에 대한 비즈니스 로직 처리
+	 * @param board
+	 */
+	void deleteOne(int no);
 }

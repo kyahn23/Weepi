@@ -35,5 +35,10 @@ public class LBoardServiceImpl implements LBoardService {
 		mapper.updateBoard(board);
 		System.out.println("edited");
 	}
+
+	@Override
+	public void deleteOne(int no) {
+		mapper.deleteBoardByNo(no);
+	}
 	
 }

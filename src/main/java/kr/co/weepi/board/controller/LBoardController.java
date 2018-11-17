@@ -47,5 +47,11 @@ public class LBoardController {
 		service.edit(board);
 		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "detail.do?no=" + board.getNo();
 	}
+	
+	@RequestMapping("/delete.do")
+	public String delete(int no) {
+		service.deleteOne(no);
+		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "list.do";
+	}
 }
 
