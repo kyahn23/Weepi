@@ -9,4 +9,5 @@ public interface LBoardMapper {
 	LBoard selectBoardByNo(int no);
 	void insertBoard(LBoard board);
 	void updateBoard(LBoard board);
+	void deleteBoardByNo(int no);
 }
