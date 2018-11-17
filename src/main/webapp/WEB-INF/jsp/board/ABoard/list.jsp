@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>CoCaIn</title>
+<title>Weepi</title>
 <link rel="stylesheet"
 	href="<c:url value="/resources/css/bootstrap/bootstrap.css"/>" />
 <link rel="stylesheet"
@@ -45,7 +45,7 @@
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<div class="table-responsive">
-					<h3>게시판</h3>
+					<h3>목록</h3>
 <%-- 					<p>전체 ${listCount}건 ${pageResult.pageNo} 페이지</p> --%>
 					<p>전체 123건1 페이지</p>
 					<table class="table" id="listtable">
@@ -65,7 +65,7 @@
  							<tr>
 								<td class="ln">${list.no}</td>
 								<td>잡담</td>
-								<td><a href="#">${list.title }</a></td>
+								<td><a href='detail.do?no=${list.no}'>${list.title }</a></td>
 								<td>${list.writer }</td>
 								<td class="ld"><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
  								<td class="lv">${list.viewCnt}</td>

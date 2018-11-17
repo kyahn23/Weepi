@@ -27,10 +27,32 @@ public class ABoardController {
 	@RequestMapping("/write.do")
 	public String write(ABoard board) {
 		service.write(board);
-		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "list.do";
-//		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "detail.do?no=" + board.getNo();
+//		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "list.do";
+		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "detail.do?no=" + board.getNo();
 	}
 	
+	
+    @RequestMapping("/detail.do")
+	public void detail(int no, Model model) {
+		model.addAttribute("board", service.detail(no));
+	}
+    
+    @RequestMapping("/delete.do")
+	public String delete(int no) throws Exception {
+		service.delete(no);
+		return UrlBasedViewResolver.REDIRECT_URL_PREFIX + "list.do";
+	}
+    
+    @RequestMapping("/updateForm.do")
+    public void updateForm(Model model, int no) {
+        model.addAttribute("board", service.detail(no));
+    }
+    
+    @RequestMapping("/update.do")
+    public String update(ABoard board) {
+        service.update(board);
+        return UrlBasedViewResolver.REDIRECT_URL_PREFIX+"detail.do?no=" + board.getNo();
+    }
 	
 	
 	

@@ -8,8 +8,12 @@ public interface ABoardService {
 
 	List<ABoard> list();
 
+	ABoard detail(int no);
+
 	void write(ABoard board);
 
-	
+	void update(ABoard board);
+
+	void delete(int no);
 
 }

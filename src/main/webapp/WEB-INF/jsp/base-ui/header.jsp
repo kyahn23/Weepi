@@ -34,7 +34,7 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">A!!<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">a1</a></li>
+					<li><a href="<c:url value="/board/ABoard/list.do"/>">a1</a></li>
 					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">a2</a></li>
 					<li><a href="<c:url value="/board/rank/rank.do"/>">a3</a></li>
 				</ul></li>
@@ -42,7 +42,7 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">O!!<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">o1</a></li>
+					<li><a href="<c:url value="/board/OBoard/list.do"/>">o1</a></li>
 					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">o2</a></li>
 					<li><a href="<c:url value="/board/rank/rank.do"/>">o3</a></li>
 				</ul></li>
@@ -50,7 +50,7 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">L!!<span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="<c:url value="/board/quiz/dqlist.do"/>">l1</a></li>
+					<li><a href="<c:url value="/board/LBoard/list.do"/>">l1</a></li>
 					<li><a href="<c:url value="/board/quiz/uqlist.do"/>">l2</a></li>
 					<li><a href="<c:url value="/board/rank/rank.do"/>">l3</a></li>
 				</ul></li>

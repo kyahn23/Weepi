@@ -17,12 +17,37 @@
 		from a_board
 		order by no desc
 	</select>
-	
-	<insert id="awrite" useGeneratedKeys="true" keyProperty="no"
-		parameterType="ABoard">
+
+	<insert id="awrite" useGeneratedKeys="true" keyProperty="no" parameterType="ABoard">
 		insert into a_board (title,writer,content)
-		values (#{title}, #{writer}, #{content})
+		values
+		(#{title}, #{writer}, #{content})
 	</insert>
+
+	<!-- 조회수 1 증가 -->
+	<update id="viewCnt" parameterType="int">
+		update a_board
+		set view_cnt = view_cnt+1
+		where no=#{no}
+	</update>
+
+	<select id="adetail" parameterType="int" resultMap="AboardMap">
+		select *
+		from a_board
+		where no = #{no}
+	</select>
+
+	<delete id="adelete" parameterType="int">
+		delete from a_board
+		where no = #{no}
+	</delete>
+
+	<update id="aupdate" parameterType="ABoard">
+		update a_board
+		set title = #{title}, content = #{content}
+		where no = #{no}
+	</update>
+
 
 
 </mapper>

@@ -10,4 +10,12 @@ public interface ABoardMapper {
 
 	void awrite(ABoard board);
 
+	ABoard adetail(int no);
+
+	void viewCnt(int no);
+
+	void adelete(int no);
+
+	void aupdate(ABoard board);
+
 }

@@ -13,7 +13,7 @@ public class ABoardServiceImpl implements ABoardService {
 
 	@Autowired
 	private ABoardMapper mapper;
-	
+
 	@Override
 	public List<ABoard> list() {
 		return mapper.alist();
@@ -22,9 +22,25 @@ public class ABoardServiceImpl implements ABoardService {
 	@Override
 	public void write(ABoard board) {
 		mapper.awrite(board);
-		
+
 	}
 
-	
+	@Override
+	public ABoard detail(int no) {
+		mapper.viewCnt(no);
+		return mapper.adetail(no);
+	}
+
+	@Override
+	public void delete(int no) {
+		mapper.adelete(no);
+
+	}
+
+	@Override
+	public void update(ABoard board) {
+		mapper.aupdate(board);
+
+	}
 
 }
