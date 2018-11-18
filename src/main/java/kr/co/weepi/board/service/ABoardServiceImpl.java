@@ -1,11 +1,13 @@
 package kr.co.weepi.board.service;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.weepi.repository.domain.ABoard;
+import kr.co.weepi.repository.domain.ABoardPage;
 import kr.co.weepi.repository.mapper.ABoardMapper;
 
 @Service
@@ -15,8 +17,15 @@ public class ABoardServiceImpl implements ABoardService {
 	private ABoardMapper mapper;
 
 	@Override
-	public List<ABoard> list() {
-		return mapper.alist();
+	public Map<String, Object> list(ABoardPage ap) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("list", mapper.alist(ap));
+		return map;
+	}
+	
+	@Override
+	public int listCount() {
+		return mapper.listCount();
 	}
 
 	@Override
@@ -42,5 +51,6 @@ public class ABoardServiceImpl implements ABoardService {
 		mapper.aupdate(board);
 
 	}
+
 
 }

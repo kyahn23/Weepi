@@ -4,10 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 import kr.co.weepi.board.service.ABoardService;
 import kr.co.weepi.repository.domain.ABoard;
+import kr.co.weepi.repository.domain.ABoardPage;
+import kr.co.weepi.util.PageResult;
 
 @Controller
 @RequestMapping("/board/ABoard")
@@ -17,8 +20,15 @@ public class ABoardController {
 	private ABoardService service;
 
 	@RequestMapping("/list.do")
-	public void list(Model model) throws Exception {
-		model.addAttribute("list", service.list());
+	public void list(@RequestParam(value="pageNo" ,defaultValue="1")int pageNo,Model model) throws Exception {
+		ABoardPage ap = new ABoardPage();
+		ap.setPageNo(pageNo);
+		PageResult pageResult = new PageResult(pageNo, service.listCount(),10,10);
+		
+		model.addAttribute("list", service.list(ap));
+		model.addAttribute("listCount", service.listCount());
+		model.addAttribute("pageResult", pageResult);
+		
 	}
 	
 	@RequestMapping("/writeForm.do")
