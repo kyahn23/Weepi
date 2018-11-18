@@ -21,6 +21,9 @@ public class LBoardServiceImpl implements LBoardService {
 
 	@Override
 	public LBoard detail(int no) {
+		System.out.println("before");
+		mapper.updateViewCount(no);
+		System.out.println("after");
 		return mapper.selectBoardByNo(no);
 	}
 
@@ -31,14 +34,11 @@ public class LBoardServiceImpl implements LBoardService {
 
 	@Override
 	public void edit(LBoard board) {
-		System.out.println("go to edit");
 		mapper.updateBoard(board);
-		System.out.println("edited");
 	}
 
 	@Override
 	public void deleteOne(int no) {
 		mapper.deleteBoardByNo(no);
 	}
-	
 }

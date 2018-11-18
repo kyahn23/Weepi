@@ -10,4 +10,5 @@ public interface LBoardMapper {
 	void insertBoard(LBoard board);
 	void updateBoard(LBoard board);
 	void deleteBoardByNo(int no);
+	void updateViewCount(int no);
 }

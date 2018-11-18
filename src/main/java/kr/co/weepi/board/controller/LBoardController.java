@@ -12,12 +12,7 @@ import kr.co.weepi.repository.domain.LBoard;
 @Controller
 @RequestMapping("/board/LBoard")
 public class LBoardController {
-	
-	public LBoardController() {
-		super();
-		System.out.println("controller");
-	}
-	
+		
 	@Autowired
 	private LBoardService service;
 	

@@ -43,6 +43,12 @@
 		delete from l_board
 		 where no = #{no}
 	</delete>
+	
+	<update id="updateViewCount" parameterType="int">
+		update l_board
+		   set view_cnt = view_cnt + 1
+		 where no = #{no}
+	</update>
 </mapper>
 
 
