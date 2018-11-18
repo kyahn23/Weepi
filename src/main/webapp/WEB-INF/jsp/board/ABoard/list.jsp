@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,65 +42,100 @@
 
 		<div class="section">
 			<div class="row">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-				<div class="table-responsive">
-					<h3>목록</h3>
-<%-- 					<p>전체 ${listCount}건 ${pageResult.pageNo} 페이지</p> --%>
-					<p>전체 123건1 페이지</p>
-					<table class="table" id="listtable">
-						<thead>
-							<tr>
-								<th class="ln">번호</th>
-								<th class="la">분류</th>
-								<th class="title">제목</th>
-								<th class="lw">작성자</th>
-								<th class="ld">날짜</th>
-								<th class="lv">조회수</th>
-								<th class="lr">추천수</th>
-							</tr>
-						</thead>
-						<tbody>
-						<c:forEach var="list" items="${list}">
- 							<tr>
-								<td class="ln">${list.no}</td>
-								<td>잡담</td>
-								<td><a href='detail.do?no=${list.no}'>${list.title }</a></td>
-								<td>${list.writer }</td>
-								<td class="ld"><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd" /></td>
- 								<td class="lv">${list.viewCnt}</td>
- 								<td class="lr">1</td>
-						</tr>
- 							</c:forEach>
-						</tbody>
-					</table>
+				<div class="col-md-1"></div>
+				<div class="col-md-10">
+					<div class="table-responsive">
+						<h3>목록</h3>
+						<p>전체 ${listCount}건 ${pageResult.pageNo} 페이지</p>
+						<!-- 					<p>전체 123건1 페이지</p> -->
+						<table class="table" id="listtable">
+							<thead>
+								<tr>
+									<th class="ln">번호</th>
+									<th class="la">분류</th>
+									<th class="title">제목</th>
+									<th class="lw">작성자</th>
+									<th class="ld">날짜</th>
+									<th class="lv">조회수</th>
+									<th class="lr">추천수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="list" items="${list.list}">
+									<tr>
+										<td class="ln">${list.no}</td>
+										<td>잡담</td>
+										<td><a href='detail.do?no=${list.no}'>${list.title }</a></td>
+										<td>${list.writer }</td>
+										<td class="ld"><fmt:formatDate value="${list.regDate}"
+												pattern="yyyy-MM-dd" /></td>
+										<td class="lv">${list.viewCnt}</td>
+										<td class="lr">1</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
 				</div>
+				<div class="col-md-1"></div>
 			</div>
-			<div class="col-md-1"></div>
-		</div>
 			<div class="row">
-			<div class="col-md-1"></div>
+				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<a class="btn btn-default pull-right" href="writeForm.do">글쓰기</a>
 				</div>
 				<div class="col-md-1"></div>
 			</div>
 			<div class="row">
-			<div class="col-md-1"></div>
+				<div class="col-md-1"></div>
 				<div class="col-md-10">
 					<div class="text-center">
 						<ul class="pagination">
-						
-						<li>&laquo;</li>
-						
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						
-						<li>&raquo;</li>
-					</ul>
+							<li
+								<c:if test="${pageResult.prev eq false}">class="disabled"</c:if>>
+								<a
+								<c:choose>
+								<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "searchlist.do"}'>
+									href="<c:url value="searchlist.do?pageNo=${pageResult.beginPage-1}&select=${search.select}&keyword=${search.keyword}"/>"
+								</c:when>
+								<c:otherwise>  
+									href="<c:url value="list.do?pageNo=${pageResult.beginPage-1}"/>"								
+								</c:otherwise>
+							</c:choose>
+								aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+							</a>
+							</li>
+							<c:forEach var="i" begin="${pageResult.beginPage}"
+								end="${pageResult.endPage}">
+								<!-- 현재페이지 체크 불가 -->
+								<li
+									<c:if test="${i eq pageResult.pageNo}"> class="active"</c:if>>
+									<a
+									<c:choose> 
+								<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "searchlist.do"}'>
+									href="<c:url value="searchlist.do?pageNo=${i}&select=${search.select}&keyword=${search.keyword}"/>"
+									</c:when>
+								<c:otherwise>
+									href="<c:url value="list.do?pageNo=${i}"/>"
+								</c:otherwise>
+								</c:choose>>${i}</a>
+								</li>
+							</c:forEach>
+							<li
+								<c:if test="${pageResult.next eq false}">class="disabled"</c:if>>
+								<a
+								<c:choose>
+									<c:when test='${requestScope["javax.servlet.forward.request_uri"].substring(18) eq "searchlist.do"}'>
+										href="<c:url value="searchlist.do?pageNo=${pageResult.endPage+1}&select=${search.select}&keyword=${search.keyword}"/>"
+									</c:when>
+									<c:otherwise>
+										href="<c:url value="list.do?pageNo=${pageResult.endPage+1}"/>"									
+									</c:otherwise>
+								</c:choose>
+								aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+							</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-1"></div>
